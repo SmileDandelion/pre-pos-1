@@ -1,3 +1,20 @@
 function create_updated_collection(collection_a, object_b) {
-  //在这里写入代码
+    var newArray=[];
+    collection_a.forEach(function(element){
+      if(IsExit(element.key,object_b.value)){
+        var cut = parseInt(element.count/3);
+        newArray.push({key:element.key, count: element.count-cut});
+      }else {
+        newArray.push({key:element.key, count: element.count});
+      }
+    });
+    return newArray;
+}
+  function IsExit(key,object_b){
+    for(var i=0;i<object_b.length;i++){
+      if(key === object_b[i]){
+        return true;
+      }
+    }
+    return false;
 }
